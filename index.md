@@ -1,37 +1,70 @@
-## Welcome to GitHub Pages
+---
+title: 공동체IT사회적협동조합 정관
+layout: default
+---
 
-You can use the [editor on GitHub](https://github.com/naamoo/salim/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+{% assign constitution = site.docs | where: "category", "constitution" %}
+{% assign constitution = constitution | first %}
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+<h1>공동체IT사회적협동조합 문서</h1>
 
-### Markdown
+<section id="constitution">
+  <h2>정관 <small>constitution 헌법</small></h2>
+  <div class="card border-primary col-sm-6">
+    <div class="card-body text-center">
+      <h3 class="card-title">
+        <a href="{{ constitution.url | relative_url }}">{{ constitution.title }}</a>
+      </h3>
+    </div>
+  </div>
+</section>
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+<section id="codes">
+  <h2>규약 <small>codes 법률</small></h2>
+  <div class="row">
+    {% assign codes = site.docs | where: "category", "code" %}
+    {% for code in codes  %}
+    <div class="col-sm-4">
+      <div class="card my-2 border-success">
+        <div class="card-body text-center py-3">
+          <h4 class="card-title">
+            <a{% if forloop.first %} class="small"{% endif %} href="{{ code.url | relative_url }}">{{ code.title }}</a>
+          </h4>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
-```markdown
-Syntax highlighted code block
+<section id="plans">
+  <h2>사업 계획 <small>plans</small></h2>
+  <div class="row">
+    {% assign plans = site.docs | where: "category", "plan" %}
+    {% for plan in plans  %}
+    <div class="col-sm-4">
+      <div class="card my-2 border-warning">
+        <div class="card-body text-center py-3">
+          <h4 class="card-title"><a href="{{ plan.url | relative_url }}">{{ plan.title }}</a></h4>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
 
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/naamoo/salim/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<section id="references">
+  <h2>참고 자료 <small>references</small></h2>
+  <div class="row">
+    {% for reference in site.data.references %}
+    <div class="col-sm-4">
+      <div class="card my-2 border-info">
+        <div class="card-body text-center py-3">
+          <h4 class="card-title"><a href="{{ reference.url }}" target="_blank">{{ reference.title | newline_to_br }}</a></h4>
+          {% if reference.source %}<p class="text-muted"><a href="{{ reference.source }}" target="_blank">출처</a></p>{% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>

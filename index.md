@@ -6,10 +6,10 @@ layout: default
 {% assign constitution = site.docs | where: "category", "constitution" %}
 {% assign constitution = constitution | first %}
 
-<h1>공동체IT사회적협동조합 문서</h1>
+<h1>살림의료복지사회적협동조합 제규정</h1>
 
 <section id="constitution">
-  <h2>정관 <small>constitution 헌법</small></h2>
+  <h2>정관 <small>constitution </small></h2>
   <div class="card border-primary col-sm-6">
     <div class="card-body text-center">
       <h3 class="card-title">
@@ -20,7 +20,7 @@ layout: default
 </section>
 
 <section id="codes">
-  <h2>규약 <small>codes 법률</small></h2>
+  <h2>규약 <small>codes </small></h2>
   <div class="row">
     {% assign codes = site.docs | where: "category", "code" %}
     {% for code in codes  %}
